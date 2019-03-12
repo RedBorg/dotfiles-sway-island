@@ -1,0 +1,130 @@
+/* import a css file containing variables, but with no pseudo classes */
+@import url('/home/master/.cache/wal/colors-waybar.css');
+
+@define-color bar_bg alpha(@background, $alpha);
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: @bar_bg;
+    color: @foreground;
+    border-radius: 0 0 15px 15px;
+}
+
+#window {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#workspaces {
+    margin-left: 20px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: @foreground;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.urgent,
+#workspaces button.focused {
+    background: alpha(@color6, .6);
+    border-bottom: 3px solid alpha(@color4, .3);
+    border-radius: 8px 0 8px 0;
+}
+
+#workspaces button:hover {
+    border-top: 3px solid @color2;
+}
+
+#workspaces button.urgent {
+    background: alpha(@color6, .8);
+    border: 5px dashed @color2;
+}
+
+
+#mode,
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#custom-spotify,
+#tray,
+#mode {
+    padding: 0 10px;
+    margin: 2px 5px;
+    background-color: alpha(mix(@bar_bg , @color3, 0.7), 0.5);
+    color: @foreground;
+    border-radius: 3px 10px 3px 10px;
+}
+
+#mode {
+    border-radius: 10px 3px 10px 3px;
+    color: @foreground;
+    border: 1px solid alpha(mix(@bar_bg , @color3, 0.7), 0.7);
+}
+
+
+#clock {
+    margin-right: 20px;
+}
+
+#battery {
+    color: black;
+}
+
+#battery.charging {
+    color: white;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: black;
+    }
+}
+
+#battery.warning:not(.charging) {
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu {
+}
+
+#memory {
+}
+
+#network {
+}
+
+#network.disconnected {
+}
+
+#pulseaudio {
+    color: black;
+}
+
+#pulseaudio.muted {
+    color: #2a5c45;
+}
+
+#custom-spotify {
+    color: #2a5c45;
+}
+
+#tray {
+}

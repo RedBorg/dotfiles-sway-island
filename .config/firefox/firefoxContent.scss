@@ -1,0 +1,20 @@
+@import '/home/master/.cache/wal/colors.scss';
+
+$tab-background: black;
+$main-color: darken($foreground, 30%); 
+
+// Edit home page
+@-moz-document url("about:home"), url("about:newtab") {
+  body {
+    background-color: $tab-background !important;
+    color: $main-color !important;
+  }
+
+  .search-inner-wrapper .search-handoff-button {
+    background-image: none !important;
+    background-color: $background !important;
+    color: $foreground !important;
+    padding: 0 20px !important;
+  }
+}
+

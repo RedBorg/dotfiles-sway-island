@@ -1,0 +1,199 @@
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 8
+
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindcode $mod+36 exec termite
+
+# start ranger
+bindcode $mod+58 exec $HOME/.config/i3/lauch_ranger
+
+# kill focused window
+bindcode $mod+Shift+24 kill
+
+# start rofi (a program launcher)
+# .desktop files
+bindcode $mod+40 exec rofi -modi drun -show drun
+# all
+bindcode $mod+Shift+40 exec PATH=$PATH:~/bin rofi -show run
+
+# change focus
+bindcode $mod+44 focus left
+bindcode $mod+45 focus down
+bindcode $mod+46 focus up
+bindcode $mod+47 focus right
+
+# alternatively, you can use the cursor keys:
+bindcode $mod+113 focus left
+bindcode $mod+116 focus down
+bindcode $mod+111 focus up
+bindcode $mod+114 focus right
+
+# move focused window
+bindcode $mod+Shift+44 move left
+bindcode $mod+Shift+45 move down
+bindcode $mod+Shift+46 move up
+bindcode $mod+Shift+47 move right
+
+# alternatively, you can use the cursor keys:
+bindcode $mod+Shift+113 move left
+bindcode $mod+Shift+116 move down
+bindcode $mod+Shift+111 move up
+bindcode $mod+Shift+114 move right
+
+# split in horizontal orientation
+bindcode $mod+43 split h
+
+# split in vertical orientation
+bindcode $mod+55 split v
+
+# enter fullscreen mode for the focused container
+bindcode $mod+41 fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindcode $mod+39 layout stacking
+bindcode $mod+25 layout tabbed
+bindcode $mod+26 layout toggle split
+
+# toggle tiling / floating
+bindcode $mod+Shift+65 floating toggle
+
+# change focus between tiling / floating windows
+bindcode $mod+65 focus mode_toggle
+
+# focus the parent container
+bindcode $mod+38 focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+set $wsUT "11:Utils"
+
+# switch to workspace
+bindcode $mod+10 workspace $ws1
+bindcode $mod+11 workspace $ws2
+bindcode $mod+12 workspace $ws3
+bindcode $mod+13 workspace $ws4
+bindcode $mod+14 workspace $ws5
+bindcode $mod+15 workspace $ws6
+bindcode $mod+16 workspace $ws7
+bindcode $mod+17 workspace $ws8
+bindcode $mod+18 workspace $ws9
+bindcode $mod+19 workspace $ws10
+bindcode $mod+30 workspace $wsUT
+
+# move focused container to workspace
+bindcode $mod+Shift+10 move container to workspace $ws1
+bindcode $mod+Shift+11 move container to workspace $ws2
+bindcode $mod+Shift+12 move container to workspace $ws3
+bindcode $mod+Shift+13 move container to workspace $ws4
+bindcode $mod+Shift+14 move container to workspace $ws5
+bindcode $mod+Shift+15 move container to workspace $ws6
+bindcode $mod+Shift+16 move container to workspace $ws7
+bindcode $mod+Shift+17 move container to workspace $ws8
+bindcode $mod+Shift+18 move container to workspace $ws9
+bindcode $mod+Shift+19 move container to workspace $ws10
+bindcode $mod+Shift+30 move container to workspace $wsUT
+
+# reload the configuration file
+bindcode $mod+Shift+54 reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindcode $mod+Shift+27 restart
+# exit i3 (logs you out of your X session)
+bindcode $mod+Shift+26 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit Sway' 'swaymsg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+# These bindings trigger as soon as you enter the resize mode
+
+# Pressing left will shrink the window’s width.
+# Pressing right will grow the window’s width.
+# Pressing up will shrink the window’s height.
+# Pressing down will grow the window’s height.
+    bindcode 44 resize shrink width 5 px or 5 ppt
+        bindcode 45 resize grow height 5 px or 5 ppt
+        bindcode 46 resize shrink height 5 px or 5 ppt
+        bindcode 47 resize grow width 5 px or 5 ppt
+
+# same bindings, but for the arrow keys
+        bindcode 113 resize shrink width 5 px or 5 ppt
+        bindcode 116 resize grow height 5 px or 5 ppt
+        bindcode 111 resize shrink height 5 px or 5 ppt
+        bindcode 114 resize grow width 5 px or 5 ppt
+
+# back to normal: Enter or Escape or $mod+r
+        bindcode 36 mode "default"
+        bindcode 9 mode "default"
+        bindcode $mod+27 mode "default"
+}
+
+bindcode $mod+27 mode "resize"
+
+## Set colors from Xresources
+#set_from_resource $fg       i3wm.color7
+#set_from_resource $urgent   i3wm.color15
+#set_from_resource $bg       i3wm.color1
+#set_from_resource $bb       i3wm.color2
+#set_from_resource $ba       i3wm.color3
+
+## Colors
+
+include "$HOME/.cache/wal/colors-sway"
+
+# class                 border    backgr.   text      indicator child_border
+client.focused          $color2   $color2   $color1   $color2   $color2
+client.unfocused        $color0   $color0   $color0   $color0   $color0
+client.focused_inactive $color3   $color3   $color1   $color3   $color3
+client.urgent           $color15  $color15  $color7   $color15  $color15
+client.placeholder      $color3   $color3   $color7   $color3   $color3
+
+client.background       $bg
+
+## Background
+output "*" background $wallpaper fill
+
+## sets keyboard layout to dvorak
+input "*" xkb_layout us,ca
+input "*" xkb_variant dvorak,multi
+input "*" xkb_options grp:win_space_toggle
+input "*" xkb_numlock enabled
+
+# sets the gaps and borders
+for_window [tiling] border pixel 4
+for_window [floating] border pixel 6
+gaps inner 5
+gaps outer 2
+
+# make default window wayland firefox
+exec_always "xdg-settings set default-web-browser firefox-nightly-wayland.desktop"
+
+# apply userChrome.css
+exec_always "$HOME/.config/firefox/makeUserChrome.sh"
+
+#reload waybar
+exec_always "$HOME/.config/waybar/run.sh"
+
+# set locker timeout
+exec swayidle \
+        timeout 300 "~/.config/swaylock/lock.sh 30" \
+        timeout 600 'swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
+        before-sleep "~/.config/swaylock/lock.sh 30" \

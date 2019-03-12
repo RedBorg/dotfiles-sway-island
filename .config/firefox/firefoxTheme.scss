@@ -1,0 +1,219 @@
+/* 
+ * Note: this is not for light themes
+ */
+
+@import '/home/master/.cache/wal/colors.scss';
+
+$tab-background: black;
+$main-color: darken($foreground, 30%); 
+
+// make lots of things have a dark background
+#appMenu-mainView,
+.PanelUI-subView,
+#PopupAutoCompleteRichResult,
+.search-panel-header,
+.search-add-engines,
+.search-panel-one-offs,
+#widget-overflow-mainView,
+#overflowMenu-customize-button:not(:hover),
+{
+  background-color: $tab-background !important;
+}
+
+// remove separators in panelUI
+.panel-subview-body toolbarseparator {
+  visibility: hidden !important;
+  margin: 4px !important
+}
+
+// general element coloring
+#titlebar,
+#navigator-toolbox,
+.scrollbutton-up,
+.scrollbutton-down,
+#new-tab-button,
+#alltabs-button.toolbarbutton-1,
+#navigator-toolbox .toolbarbutton-1 .toolbarbutton-icon,
+#appMenu-mainView,
+.PanelUI-subView,
+#PopupAutoCompleteRichResult,
+.search-panel-header,
+.search-add-engines,
+.search-panel-one-offs,
+.searchbar-engine-one-off-item,
+#widget-overflow-mainView,
+{
+    color: $main-color !important;
+    fill: $main-color !important;
+}
+
+#titlebar {
+
+  background-color: $tab-background !important;
+
+  tab {
+    .tab-background {
+      display: none !important;
+    }
+  }
+  
+  // Remove tab separator
+  tab::after {
+    display: none !important;
+  }
+
+  // Remove overflow arrow separator
+  .arrowscrollbox-overflow-start-indicator {
+    visibility: hidden !important;
+  }
+
+
+  tab[selected="true"] {
+    background-color: $color2 !important;
+    border-radius: 10px 0 10px 0 !important;
+    margin: 5px !important;
+    color: $tab-background !important;
+  }
+
+  tab:not([selected="true"]) {
+    .tab-icon-image {
+      display: none !important;
+    }
+
+    color: lighten($background, 30%) !important;
+    background-color: $tab-background !important;
+  }
+
+  // Make titles bigger when hovered
+  // or when selected tab
+  tab:not([selected="true"]):hover,
+  tab[selected="true"] {
+    min-width: 200px !important;
+
+    .tab-close-button {
+      display: block !important;
+      border-radius: 3px 9px 3px 9px !important;
+    }
+
+    .tab-icon-image {
+      display: block !important;
+    }
+  }
+}
+
+// make privacy possum dark icon appear ok on dark background
+.toolbarbutton-1[label="Privacy Possum"] .toolbarbutton-icon {
+  filter: invert(70%);
+}
+
+// make little island style for layout buttons
+.toolbarbutton-1:hover > .toolbarbutton-icon,
+.toolbarbutton-1.webextension-browser-action:hover .toolbarbutton-badge-stack,
+#navigator-toolbox .toolbarbutton-1:hover .toolbarbutton-icon,
+#PanelUI-menu-button.toolbarbutton-1:hover .toolbarbutton-badge-stack,
+.subviewbutton:hover,
+.urlbar-icon:hover,
+.autocomplete-richlistitem[selected="true"] .ac-title,
+.autocomplete-richlistitem:hover .ac-title,
+#alltabs-button:hover .toolbarbutton-badge-stack,
+.scrollbutton-down:not([disabled="true"]):hover .toolbarbutton-icon,
+.scrollbutton-up:not([disabled="true"]):hover .toolbarbutton-icon,
+.searchbar-engine-one-off-item:hover:not(.dummy),
+#widget-overflow-mainView .webextension-browser-action:hover,
+{
+  border-radius: 3px 9px 3px 9px !important;
+  background-color: $color6 !important;
+  color: $tab-background !important;
+  fill: $tab-background !important;
+
+  border-top: #0000 5px !important;
+}
+
+// make little island style for layout buttons that are open
+.toolbarbutton-1[open="true"]:not(:hover) .toolbarbutton-icon,
+.toolbarbutton-1.webextension-browser-action[open="true"]:not(:hover) .toolbarbutton-badge-stack,
+#PanelUI-menu-button.toolbarbutton-1[open="true"]:not(:hover) .toolbarbutton-badge-stack,
+.toolbarbutton-1[open="true"]:not(:hover) .toolbarbutton-badge-stack,
+.urlbar-icon[open="true"]:not(:hover) {
+
+  border-radius: 3px 9px 3px 9px !important;
+  background-color: rgba($color6, 0.6) !important;
+  color: $tab-background !important;
+  fill: $tab-background !important;
+
+  border-top: #0000 5px !important;
+}
+
+// disable background for some elements that already have one
+.toolbarbutton-1[open="true"]:not(:hover) .toolbarbutton-badge-stack .toolbarbutton-icon,
+.scrollbutton-down:hover,
+.scrollbutton-up:hover,
+#widget-overflow-mainView .webextension-browser-action:hover .toolbarbutton-badge-stack
+{
+  background: none !important;
+} 
+
+// add padding for the icons of tab scroll arrows
+.scrollbutton-down .toolbarbutton-icon,
+.scrollbutton-up .toolbarbutton-icon {
+  padding: 6px !important;
+}
+
+//override margin and padding for toolbar option
+.subviewbutton {
+  $margin: 10px;
+  margin-left: $margin !important;
+  margin-right: $margin !important;
+}
+
+
+//override background color for island elements
+.subviewbutton:hover,
+.autocomplete-richlistitem[selected="true"]:not(:hover) .ac-title,
+#widget-overflow-mainView .webextension-browser-action:hover,
+{
+  background-color: $color1 !important;
+}
+
+//disable background for autocomplete all-width results
+.autocomplete-richlistitem {
+  background: none !important;
+  fill: $main-color !important;
+  color: $main-color !important;
+}
+
+// Make the icon for a new temp tab black when hovered
+#navigator-toolbox #_c607c8df-14a7-4f28-894f-29e8722976af_-browser-action:hover .toolbarbutton-icon {
+  filter: invert(100%);
+  background-color: invert(rgba($color6, 0.6)) !important;
+}
+
+.autocomplete-richlistitem .ac-title {
+  padding: 3px 5px;
+}
+
+/*
+.autocomplete-richlistitem {
+  margin: 5px 20px !important;
+}
+*/
+
+
+.searchbar-engine-one-off-item {
+  background-image: none !important;
+}
+
+.subviewbutton:hover::after {
+  color: $tab-background !important;
+}
+
+.browser-toolbar:not(.titlebar-color) {
+  background-color: $tab-background !important;
+  background-image: none !important;
+}
+
+#urlbar {
+  background-color: $background !important;
+  color: $foreground !important;
+}
+
