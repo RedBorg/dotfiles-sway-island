@@ -70,6 +70,9 @@ bindcode $mod+65 focus mode_toggle
 # focus the parent container
 bindcode $mod+38 focus parent
 
+# disable focus follow
+focus_follows_mouse no
+
 # focus the child container
 #bindsym $mod+d focus child
 
@@ -115,10 +118,10 @@ bindcode $mod+Shift+30 move container to workspace $wsUT
 
 # reload the configuration file
 bindcode $mod+Shift+54 reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# restart sway inplace (preserves your layout/session, can be used to upgrade sway)
 bindcode $mod+Shift+27 restart
-# exit i3 (logs you out of your X session)
-bindcode $mod+Shift+26 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit Sway' 'swaymsg exit'"
+# exit sway (logs you out of your X session)
+bindcode $mod+Shift+26 exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit Sway' 'swaymsg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -192,8 +195,8 @@ exec_always "$HOME/.config/firefox/makeUserChrome.sh"
 exec_always "$HOME/.config/waybar/run.sh"
 
 # set locker timeout
-exec swayidle \
-        timeout 300 "~/.config/swaylock/lock.sh 30" \
-        timeout 600 'swaymsg "output * dpms off"' \
-        resume 'swaymsg "output * dpms on"' \
-        before-sleep "~/.config/swaylock/lock.sh 30" \
+exec_always killall swayidle
+exec_always sh $HOME/.config/sway/swayidle.sh
+
+# enable lock ($mod+shift+l)
+bindcode $mod+shift+33 exec $HOME/.config/swaylock/lock.sh 50

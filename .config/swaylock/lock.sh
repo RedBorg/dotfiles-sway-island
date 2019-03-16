@@ -22,7 +22,7 @@ cd "$(dirname "$0")" || exit
 grim -t jpeg screen.jpg
 
 #get logo path, if none random
-if [[ -v $2 ]]; then
+if [[ "$2" != "" ]]; then
   cd "$original_dir" || exit
   image=$(realpath "$2")
   cd "$(dirname "$0")" || exit

@@ -4,7 +4,7 @@
     "height": 30,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["network", "cpu", "memory", "battery", "battery#bat2", "tray", 
+    "modules-right": [/*"network",*/ "cpu", "memory", "battery", "battery#bat2", "tray", 
                       "clock"],
     // Modules configuration
     "sway/workspaces": {
