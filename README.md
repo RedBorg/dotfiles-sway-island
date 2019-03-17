@@ -5,6 +5,7 @@ Those are my dotfiles for my pywal-based.
 ## Main software
 - [sway](https://github.com/swaywm/sway)
   - *note: A 1.0+ version would work better*
+- [termite](https://github.com/thestinger/termite)
 - [pywal](https://github.com/dylanaraps/pywal)
   - **optional:**
     - [wpgtk](https://github.com/deviantfero/wpgtk), for gtk theming
