@@ -1,0 +1,99 @@
+#!/bin/bash
+
+# DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+#                     Version 2, December 2004 
+# 
+#  Copyright (C) 2018 RedBorg
+# 
+#  Everyone is permitted to copy and distribute verbatim or modified 
+#  copies of this license document, and changing it is allowed as long 
+#  as the name is changed. 
+# 
+#             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+#    TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION 
+# 
+#   0. You just DO WHAT THE FUCK YOU WANT TO.
+
+cd "$1" || exit # You can also choose to hard code it
+
+images=(*)
+backends=(wal colorz haishoku) # replace those by the ones you have installed
+
+# Choosing image file
+
+# Making sure there's files
+if [ ${#images[@]} -eq 0 ]
+then
+    echo "No files in $1"
+    exit
+fi
+
+# Displaying all the files in a numbered list
+i=0
+for img in "${images[@]}"
+do
+    let "i = $i + 1"
+
+    echo -e "\033[32;1m[$i]\033[0;96m $img\033[0m"
+done
+
+# Checked number selection
+while true
+do
+    echo -e "Choose your image: "
+    read -r img_select
+
+    if [[ ( ! ( $img_select =~ ^[0-9]+$ ) ) || ( $img_select -lt 1 ) || ( $img_select -gt $i ) ]]
+    then
+        echo -e "\033[1mInvalid input, please enter an integer between 1 and $i\033[0m"
+        continue
+    fi
+
+    break
+done
+
+# ajusting to zero based index
+let "img_select = $img_select - 1"
+
+image=${images[$img_select]}
+
+#############################
+
+# Nice separator
+echo -e "\033[35;1;4m============================\033[0m"
+
+# Choosing backend
+
+# Listing backends
+i=0
+for back in "${backends[@]}"
+do
+    let "i = $i + 1"
+
+    echo -e "\033[32;1m[$i]\033[0;96m $back\033[0m"
+done
+
+# Checked number selection
+while true
+do
+    echo -e "\033[1mChoose your backend: \033[1m"
+    read -r back_select
+
+    if [[ ( ! ( $back_select =~ ^[0-9]+$ ) ) || ( $back_select -lt 1 ) || ( $back_select -gt $i ) ]]
+    then
+        echo -e "\033[1mInvalid input, please enter an integer between 1 and $i\033[0m"
+        continue
+    fi
+
+    break
+done
+
+# Zero-based index ajusting
+let "back_select = $back_select - 1"
+
+backend=${backends[$back_select]}
+
+
+echo -e "\033[35;1mGenerating theme for image $image with backend $backend\033[0m"
+
+wal --backend "$backend" -i "$image"
