@@ -55,3 +55,5 @@ backend=$(echo -e "$backend_str" | dmenu)
 echo -e "\033[35;1mGenerating theme for image $image with backend $backend\033[0m"
 
 wal --backend "$backend" -i "$image"
+wpg -i blank.jpeg ~/.cache/wal/colors.json
+wpg -ns blank.jpeg blank.jpeg
