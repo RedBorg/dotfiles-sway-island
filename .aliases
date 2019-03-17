@@ -1,0 +1,7 @@
+alias nv="nvim"
+alias snv="sudoedit"
+alias dock="docker"
+alias cl="clear"
+alias lock="~/.config/swaylock/lock.sh 50"
+alias hello="echo hello"
+
