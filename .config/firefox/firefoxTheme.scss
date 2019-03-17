@@ -130,11 +130,12 @@ $main-color: darken($foreground, 30%);
 }
 
 // make little island style for layout buttons that are open
-.toolbarbutton-1[open="true"]:not(:hover) .toolbarbutton-icon,
+#navigator-toolbox .toolbarbutton-1[open="true"]:not(:hover) .toolbarbutton-icon,
 .toolbarbutton-1.webextension-browser-action[open="true"]:not(:hover) .toolbarbutton-badge-stack,
 #PanelUI-menu-button.toolbarbutton-1[open="true"]:not(:hover) .toolbarbutton-badge-stack,
 .toolbarbutton-1[open="true"]:not(:hover) .toolbarbutton-badge-stack,
-.urlbar-icon[open="true"]:not(:hover) {
+.urlbar-icon[open="true"]:not(:hover)
+{
 
   border-radius: 3px 9px 3px 9px !important;
   background-color: rgba($color6, 0.6) !important;
@@ -142,6 +143,12 @@ $main-color: darken($foreground, 30%);
   fill: $tab-background !important;
 
   border-top: #0000 5px !important;
+
+  .toolbarbutton-icon {
+    color: $tab-background !important;
+    fill: $tab-background !important; 
+    background: none !important;
+  }
 }
 
 // disable background for some elements that already have one
