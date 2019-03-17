@@ -48,6 +48,8 @@ Plug 'vim-scripts/scrollfix'
 Plug 'tpope/vim-fugitive'
 Plug 'othree/html5.vim'
 Plug 'alvan/vim-closetag', { 'for': 'html' }
+Plug 'mcchrish/nnn.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 call plug#end()
 

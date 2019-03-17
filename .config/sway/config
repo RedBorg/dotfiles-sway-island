@@ -12,7 +12,7 @@ floating_modifier $mod
 bindcode $mod+36 exec termite
 
 # start ranger
-bindcode $mod+58 exec $HOME/.config/i3/lauch_ranger
+bindcode $mod+58 exec termite -e $HOME/.config/sway/launch_nnn.sh
 
 # kill focused window
 bindcode $mod+Shift+24 kill
