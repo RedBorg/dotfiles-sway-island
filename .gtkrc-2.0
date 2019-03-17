@@ -1,0 +1,4 @@
+gtk-icon-theme-name = "Adwaita"
+gtk-theme-name = "FlatColor"
+gtk-font-name = "DejaVu Sans 11"
+gtk-can-change-accels = 1
