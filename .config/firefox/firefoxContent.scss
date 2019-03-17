@@ -10,11 +10,27 @@ $main-color: darken($foreground, 30%);
     color: $main-color !important;
   }
 
+  button.icon-settings {
+    color: $main-color !important;
+    fill: $main-color !important;
+  }
+
   .search-inner-wrapper .search-handoff-button {
     background-image: none !important;
     background-color: $background !important;
     color: $foreground !important;
     padding: 0 20px !important;
+  }
+
+  // make little island style for layout buttons
+  button.icon-settings:hover
+  {
+    border-radius: 3px 9px 3px 9px !important;
+    background-color: $color6 !important;
+    color: $tab-background !important;
+    fill: $tab-background !important;
+
+    border-top: #0000 5px !important;
   }
 }
 
