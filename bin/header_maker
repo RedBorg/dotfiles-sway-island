@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# if $4 set, cd to it
+if [ ! -z "$4" ]; then
+  cd "$4" || exit 1
+fi
+
+path=$(pwd)
+
+# if $3 not set, set it to ""
+if [ -z "${3+xxx}" ]; then
+  file_ext=''
+else
+  file_ext=$3
+fi
+
+# find file in directory, or parents
+while [[ "$path" != "" && ! -e "$path/$1" && ! -e "$path/$file_ext-$1" ]]; do
+  path=${path%/*}
+done
+
+if [ "$path" == "" ]; then
+  echo ""
+  exit 0
+fi
+
+if [ -e "$path/$file_ext-$1" ]; then
+  path="$path/$file_ext-$1"
+else
+  path="$path/$1"
+fi
+
+DATE=$(date +%Y)
+
+header=$(sed -e "s^&file^$2^g" -e "s/&date/$DATE/" "$path")
+printf '%s' "$header"
