@@ -1,0 +1,62 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml"); /* namespace for HTML elements */
+
+@import '/home/master/.cache/wal/colors.scss';
+
+$tab-background: black;
+$main-color: darken($foreground, 30%); 
+
+    scrollbar, scrollbar *, scrollcorner {
+	-moz-appearance: none !important;
+	--scrollbar-width: 10px;
+    --scrollbar-height: var(--scrollbar-width);
+}
+
+scrollbar, scrollcorner  {
+    background: $tab-background !important;
+}
+scrollbar[orient="vertical"] {
+    width: var(--scrollbar-width) !important;
+    min-width: var(--scrollbar-width) !important;
+}
+scrollbar[orient="horizontal"] {
+    height: var(--scrollbar-height) !important;
+    min-height: var(--scrollbar-height) !important;
+}
+
+scrollbar thumb {
+	background: $main-color !important;
+ border-radius: 9px 0px 9px 0px;
+}
+scrollbar thumb:hover,
+scrollbar thumb:active {
+	background: $color2 !important;
+}
+
+scrollbar:inactive scrollbarbutton {
+    background-color: $color7 !important;
+}
+scrollbar scrollbarbutton:inactive {
+    background: $color7 !important;
+}
+scrollbar scrollbarbutton:inactive {
+    background: $color7 !important;
+}
+scrollbar scrollbarbutton {
+    display: none !important;
+   }
+
+/*
+scrollbar{
+  background: $tab-background !important;
+  -moz-appearance: none !important;
+  --scrollbar-width: 10px;
+  --scrollbar-height: var(--scrollbar-width);
+}
+
+thumb, slider {
+  background-color: #f00 !important;
+  color: $main-color !important;
+ // -moz-appearance: none !important;
+}
+*/

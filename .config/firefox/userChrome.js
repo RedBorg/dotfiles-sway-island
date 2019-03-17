@@ -16,8 +16,10 @@ function reloadUserStyle() {
     get("UChrm", Components.interfaces.nsIFile);
 
   //reload each files
-  const files = ['/userChrome-noDef.css', '/userContent-noDef.css'];
+  const files = ['/userChrome-noDef.css', '/userContent-noDef.css', '/scrollbar.as.css'];
   for ( let cssFile of files ) {
+
+    console.log(cssFile);
     // build the path
     var userChromePath = 'file://' + chromePath.path + cssFile;
 
@@ -33,6 +35,21 @@ function reloadUserStyle() {
     sss.loadAndRegisterSheet( uri, sss.USER_SHEET );
 
   }	
+/*
+  var scrollbarPath = 'file://' + chromePath.path + '/scrollbar.as.css'
+  var uri = ios.newURI( scrollbarPath, null, null )
+  // if registered unregister first
+  while ( sss.sheetRegistered( uri, sss.AGENT_SHEEt ) ) {
+    sss.unregisterSheet( uri, sss.AGENT_SHEET );
+    console.log('unloaded scrollbar')
+  }
+
+  // then load and register as USER_SHEET
+  sss.loadAndRegisterSheet( uri, sss.AGENT_SHEET );
+  console.log('reloaded scrollbar')
+  console.log(uri)
+*/
+
 
   console.log('reloaded');
 }
