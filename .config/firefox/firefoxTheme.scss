@@ -103,7 +103,13 @@ $main-color: darken($foreground, 30%);
 
 // make privacy possum dark icon appear ok on dark background
 .toolbarbutton-1[label="Privacy Possum"] .toolbarbutton-icon {
-  filter: invert(70%);
+  filter: invert(100%);
+}
+#navigator-toolbox .toolbarbutton-1[label="Privacy Possum"]:hover .toolbarbutton-icon {
+  background-color: invert($color6) !important;
+}
+#navigator-toolbox .toolbarbutton-1[open="true"][label="Privacy Possum"]:not(:hover) .toolbarbutton-icon {
+  background-color: invert(rgba($color6, 0.1)) !important;
 }
 
 // make little island style for layout buttons
