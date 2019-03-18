@@ -187,9 +187,15 @@ gaps outer 2
 
 # Calculator
 exec $HOME/.config/sway/calculator/spawn_calculator.sh
-[title="Calculator"] move scratchpad
+for_window [title="Calculator"] move scratchpad
 bindcode $mod+31 [title="Calculator"] scratchpad show
 bindcode $mod+Shift+31 [title="Calculator"] move scratchpad
+
+# Volume
+exec $HOME/.config/sway/volume/spawn_volume.sh
+for_window [title="Volume"] move scratchpad
+bindcode $mod+60 [title="Volume"] scratchpad show
+bindcode $mod+Shift+60 [title="Volume"] move scratchpad
 
 # make default window wayland firefox
 exec_always "xdg-settings set default-web-browser firefox-nightly-wayland.desktop"
