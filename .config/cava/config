@@ -12,18 +12,18 @@
 # 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
 # new as of 0.6.0 autosens of low values (dynamic range)
 # 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens. DEPRECATED as of 0.6.0
-; autosens = 1
-; overshoot = 20
+autosens = 1
+; overshoot = 0
 
 # Manual sensitivity in %. Autosens must be turned off for this to take effect.
 # 200 means double height. Accepts only non-negative values.
-sensitivity = 30
+; sensitivity = 30
 
 # The number of bars (0-200). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
 ; bars = 0
-bar_width = 1
-; bar_spacing = 1
+bar_width = 2
+bar_spacing = 1
 
 
 # Lower and higher cutoff frequencies for lowest and highest bars
@@ -112,15 +112,15 @@ source = auto
 
 # Percentage value for integral smoothing. Takes values from 0 - 100.
 # Higher values means smoother, but less precise. 0 to disable.
-; integral = 70
+integral = 60
 
 # Disables or enables the so-called "Monstercat smoothing" with or without "waves". Set to 0 to disable. 
-; monstercat = 1
-; waves = 0;
+monstercat = 0
+waves = 0
 
 # Set gravity percentage for "drop off". Higher values means bars will drop faster.
 # Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
-; gravity = 100
+gravity = 90
 
 
 # In bar height, bars that would have been lower that this will not be drawn.

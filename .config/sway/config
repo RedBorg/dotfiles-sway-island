@@ -174,9 +174,9 @@ client.background       $bg
 output "*" background $wallpaper fill
 
 ## sets keyboard layout to dvorak
-input "*" xkb_layout us,ca
-input "*" xkb_variant dvorak,multi
-input "*" xkb_options grp:win_space_toggle
+input "*" xkb_layout us,ca,fr
+input "*" xkb_variant dvorak,multi,bepo
+input "*" xkb_options grp:alt_space_toggle
 input "*" xkb_numlock enabled
 
 # sets the gaps and borders

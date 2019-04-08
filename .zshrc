@@ -131,3 +131,10 @@ n()
     rm $NNN_TMPFILE
   fi
 }
+
+# output ansi qrcode to the terminal
+qr()
+{ qrencode -t ANSI -o /tmp/qrcode "$1" && cat /tmp/qrcode; rm /tmp/qrcode}
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export QT_STYLE_OVERRIDE=gtk2
